@@ -1,0 +1,95 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix informix: <http://demo.openlinksw.com:8890/schemas/informix/> .
+@prefix informix-stat: <http://demo.openlinksw.com:8890/informix/stat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix scovo: <http://purl.org/NET/scovo#> .
+@prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
+
+
+<#TriplesMapcall_type> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "call_type" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/call_type/call_code={call_code}"; rr:class informix:call_type; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:call_code ] ; rr:objectMap [ rr:column "call_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:code_descr ] ; rr:objectMap [ rr:column "code_descr" ]; ] .
+
+<#TriplesMapcatalog> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "catalog" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/catalog/catalog_num={catalog_num}"; rr:class informix:catalog; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:catalog_num ] ; rr:objectMap [ rr:column "catalog_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:cat_descr ] ; rr:objectMap [ rr:column "cat_descr" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:cat_picture ] ; rr:objectMap [ rr:column "cat_picture" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:cat_advert ] ; rr:objectMap [ rr:column "cat_advert" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:catalog_has_stock ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/informix/stock/stock_num={stock_num}/manu_code={manu_code}" ]; ] .
+
+<#TriplesMapcust_calls> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "cust_calls" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/cust_calls/customer_num={customer_num}/call_dtime={call_dtime}"; rr:class informix:cust_calls; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:customer_num ] ; rr:objectMap [ rr:column "customer_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:call_dtime ] ; rr:objectMap [ rr:column "call_dtime" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:user_id ] ; rr:objectMap [ rr:column "user_id" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:call_code ] ; rr:objectMap [ rr:column "call_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:call_descr ] ; rr:objectMap [ rr:column "call_descr" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:res_dtime ] ; rr:objectMap [ rr:column "res_dtime" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:res_descr ] ; rr:objectMap [ rr:column "res_descr" ]; ] .
+
+<#TriplesMapcustomer> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "customer" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/customer/customer_num={customer_num}"; rr:class informix:customer; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:customer_num ] ; rr:objectMap [ rr:column "customer_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:fname ] ; rr:objectMap [ rr:column "fname" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:lname ] ; rr:objectMap [ rr:column "lname" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:company ] ; rr:objectMap [ rr:column "company" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:address1 ] ; rr:objectMap [ rr:column "address1" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:address2 ] ; rr:objectMap [ rr:column "address2" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:state ] ; rr:objectMap [ rr:column "state" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:zipcode ] ; rr:objectMap [ rr:column "zipcode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:phone ] ; rr:objectMap [ rr:column "phone" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:customer_of_orders ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMaporders>;  rr:joinCondition [ rr:child "customer_num" ; rr:parent "customer_num" ] ; ]; ] .
+
+<#TriplesMapitems> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "items" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/items/item_num={item_num}/order_num={order_num}"; rr:class informix:items; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:item_num ] ; rr:objectMap [ rr:column "item_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:order_num ] ; rr:objectMap [ rr:column "order_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:quantity ] ; rr:objectMap [ rr:column "quantity" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:total_price ] ; rr:objectMap [ rr:column "total_price" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:items_has_stock ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/informix/stock/stock_num={stock_num}/manu_code={manu_code}" ]; ] .
+
+<#TriplesMapmanufact> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "manufact" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/manufact/manu_code={manu_code}"; rr:class informix:manufact; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:manu_code ] ; rr:objectMap [ rr:column "manu_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:manu_name ] ; rr:objectMap [ rr:column "manu_name" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:lead_time ] ; rr:objectMap [ rr:column "lead_time" ]; ] .
+
+<#TriplesMapmsgs> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "msgs" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/msgs/number={number}"; rr:class informix:msgs; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:lang ] ; rr:objectMap [ rr:column "lang" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:number ] ; rr:objectMap [ rr:column "number" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:message ] ; rr:objectMap [ rr:column "message" ]; ] .
+
+<#TriplesMaporders> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "orders" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/orders/order_num={order_num}"; rr:class informix:orders; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:order_num ] ; rr:objectMap [ rr:column "order_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:order_date ] ; rr:objectMap [ rr:column "order_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:ship_instruct ] ; rr:objectMap [ rr:column "ship_instruct" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:backlog ] ; rr:objectMap [ rr:column "backlog" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:po_num ] ; rr:objectMap [ rr:column "po_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:ship_date ] ; rr:objectMap [ rr:column "ship_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:ship_weight ] ; rr:objectMap [ rr:column "ship_weight" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:ship_charge ] ; rr:objectMap [ rr:column "ship_charge" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:paid_date ] ; rr:objectMap [ rr:column "paid_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:orders_has_customer ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/informix/customer/customer_num={customer_num}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:orders_has_customer ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/informix/customer/customer_num={customer_num}" ]; ] .
+
+<#TriplesMapstate> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "state" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/state/code={code}"; rr:class informix:state; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:code ] ; rr:objectMap [ rr:column "code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:sname ] ; rr:objectMap [ rr:column "sname" ]; ] .
+
+<#TriplesMapstock> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "informix" ; rr:tableOwner "stores" ; rr:tableName "stock" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/informix/stock/stock_num={stock_num}/manu_code={manu_code}"; rr:class informix:stock; rr:graph <http://demo.openlinksw.com:8890/informix#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:stock_num ] ; rr:objectMap [ rr:column "stock_num" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:manu_code ] ; rr:objectMap [ rr:column "manu_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:description ] ; rr:objectMap [ rr:column "description" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:unit_price ] ; rr:objectMap [ rr:column "unit_price" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:unit ] ; rr:objectMap [ rr:column "unit" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:unit_descr ] ; rr:objectMap [ rr:column "unit_descr" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:stock_of_catalog ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapcatalog>;  rr:joinCondition [ rr:child "stock_num" ; rr:parent "stock_num" ] ; rr:joinCondition [ rr:child "manu_code" ; rr:parent "manu_code" ] ; ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant informix:stock_of_items ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapitems>;  rr:joinCondition [ rr:child "stock_num" ; rr:parent "stock_num" ] ; rr:joinCondition [ rr:child "manu_code" ; rr:parent "manu_code" ] ; ]; ] .

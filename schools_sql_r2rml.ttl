@@ -1,0 +1,30 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix School-0602: <http://opllinux5.usnet.private:8708/schemas/School-0602/> .
+@prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
+
+<#TriplesMapPerson> 
+a rr:TriplesMap; 
+rr:logicalTable [ rr:sqlQuery """
+								  SELECT "PersonID", "LastName", "FirstName", "HireDate", "EnrollmentDate" 
+								  FROM "School"."DBA"."Person" 
+							  """ 
+				]; 
+rr:subjectMap [ rr:termType rr:IRI  ; 
+	            rr:template "http://opllinux5.usnet.private:8708/School/person/PersonID={PersonID}"; 
+				rr:class School-0602:Person; rr:graph <http://opllinux5.usnet.private:8708/School-0602#> 
+			  ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant School-0602:personid ] ; 
+	                    rr:objectMap [ rr:column "PersonID" ]; 
+					  ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant School-0602:lastname ] ; 
+						rr:objectMap [ rr:column "LastName" ]; 
+					  ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant School-0602:firstname ] ; 
+						rr:objectMap [ rr:column "FirstName" ]; 
+					  ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant School-0602:hiredate ] ; 
+						rr:objectMap [ rr:column "HireDate" ]; 
+					  ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant School-0602:enrollmentdate ] ; 
+						rr:objectMap [ rr:column "EnrollmentDate" ]; 
+					  ] .

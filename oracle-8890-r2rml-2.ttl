@@ -1,0 +1,69 @@
+## Oracle HR Schema Table Mappings
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix Oracle: <http://demo.openlinksw.com:8890/schemas/Oracle/> .
+@prefix oracle-stat: <http://demo.openlinksw.com:8890/Oracle/stat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix scovo: <http://purl.org/NET/scovo#> .
+@prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
+
+
+<#TriplesMapCOUNTRIES> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "COUNTRIES" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/countries/COUNTRY_ID={COUNTRY_ID}"; rr:class Oracle:COUNTRIES; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:country_id ] ; rr:objectMap [ rr:column "COUNTRY_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:country_name ] ; rr:objectMap [ rr:column "COUNTRY_NAME" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:region_id ] ; rr:objectMap [ rr:column "REGION_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:countries_of_locations ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapLOCATIONS>;  rr:joinCondition [ rr:child "COUNTRY_ID" ; rr:parent "COUNTRY_ID" ] ; ]; ] .
+
+<#TriplesMapDEPARTMENTS> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "DEPARTMENTS" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/departments/DEPARTMENT_ID={DEPARTMENT_ID}"; rr:class Oracle:DEPARTMENTS; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:department_id ] ; rr:objectMap [ rr:column "DEPARTMENT_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:department_name ] ; rr:objectMap [ rr:column "DEPARTMENT_NAME" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:departments_has_employees ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/employees/MANAGER_ID={MANAGER_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:departments_has_locations ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/locations/LOCATION_ID={LOCATION_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:departments_of_employees ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapEMPLOYEES>;  rr:joinCondition [ rr:child "DEPARTMENT_ID" ; rr:parent "DEPARTMENT_ID" ] ; ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:departments_of_job_history ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapJOB_HISTORY>;  rr:joinCondition [ rr:child "DEPARTMENT_ID" ; rr:parent "DEPARTMENT_ID" ] ; ]; ] .
+
+<#TriplesMapEMPLOYEES> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "EMPLOYEES" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/employees/EMPLOYEE_ID={EMPLOYEE_ID}"; rr:class Oracle:EMPLOYEES; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employee_id ] ; rr:objectMap [ rr:column "EMPLOYEE_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:first_name ] ; rr:objectMap [ rr:column "FIRST_NAME" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:last_name ] ; rr:objectMap [ rr:column "LAST_NAME" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:email ] ; rr:objectMap [ rr:column "EMAIL" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:phone_number ] ; rr:objectMap [ rr:column "PHONE_NUMBER" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:hire_date ] ; rr:objectMap [ rr:column "HIRE_DATE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:salary ] ; rr:objectMap [ rr:column "SALARY" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:commission_pct ] ; rr:objectMap [ rr:column "COMMISSION_PCT" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employees_has_departments ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/departments/DEPARTMENT_ID={DEPARTMENT_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employees_has_jobs ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/jobs/JOB_ID={JOB_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employees_of_departments ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapDEPARTMENTS>;  rr:joinCondition [ rr:child "EMPLOYEE_ID" ; rr:parent "MANAGER_ID" ] ; ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employees_has_employees ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/employees/MANAGER_ID={MANAGER_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:employees_of_job_history ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapJOB_HISTORY>;  rr:joinCondition [ rr:child "EMPLOYEE_ID" ; rr:parent "EMPLOYEE_ID" ] ; ]; ] .
+
+<#TriplesMapJOBS> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "JOBS" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/jobs/JOB_ID={JOB_ID}"; rr:class Oracle:JOBS; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:job_id ] ; rr:objectMap [ rr:column "JOB_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:job_title ] ; rr:objectMap [ rr:column "JOB_TITLE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:min_salary ] ; rr:objectMap [ rr:column "MIN_SALARY" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:max_salary ] ; rr:objectMap [ rr:column "MAX_SALARY" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:jobs_of_employees ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapEMPLOYEES>;  rr:joinCondition [ rr:child "JOB_ID" ; rr:parent "JOB_ID" ] ; ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:jobs_of_job_history ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapJOB_HISTORY>;  rr:joinCondition [ rr:child "JOB_ID" ; rr:parent "JOB_ID" ] ; ]; ] .
+
+<#TriplesMapJOB_HISTORY> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "JOB_HISTORY" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/job_history/EMPLOYEE_ID={EMPLOYEE_ID}/START_DATE={START_DATE}"; rr:class Oracle:JOB_HISTORY; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:start_date ] ; rr:objectMap [ rr:column "START_DATE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:end_date ] ; rr:objectMap [ rr:column "END_DATE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:job_history_has_departments ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/departments/DEPARTMENT_ID={DEPARTMENT_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:job_history_has_employees ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/employees/EMPLOYEE_ID={EMPLOYEE_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:job_history_has_jobs ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/jobs/JOB_ID={JOB_ID}" ]; ] .
+
+<#TriplesMapLOCATIONS> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Oracle" ; rr:tableOwner "HR" ; rr:tableName "LOCATIONS" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/Oracle/locations/LOCATION_ID={LOCATION_ID}"; rr:class Oracle:LOCATIONS; rr:graph <http://demo.openlinksw.com:8890/Oracle#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:location_id ] ; rr:objectMap [ rr:column "LOCATION_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:street_address ] ; rr:objectMap [ rr:column "STREET_ADDRESS" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:postal_code ] ; rr:objectMap [ rr:column "POSTAL_CODE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:city ] ; rr:objectMap [ rr:column "CITY" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:state_province ] ; rr:objectMap [ rr:column "STATE_PROVINCE" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:locations_has_countries ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com:8890/Oracle/countries/COUNTRY_ID={COUNTRY_ID}" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant Oracle:locations_of_departments ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapDEPARTMENTS>;  rr:joinCondition [ rr:child "LOCATION_ID" ; rr:parent "LOCATION_ID" ] ; ]; ] .
