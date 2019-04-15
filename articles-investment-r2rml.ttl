@@ -1,0 +1,105 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix csv: <http://demo.openlinksw.com:8890/schemas/csv/> .
+@prefix csv-stat: <http://demo.openlinksw.com:8890/csv/stat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix scovo: <http://purl.org/NET/scovo#> .
+@prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
+
+
+<#TriplesMaparticles> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "demo" ; rr:tableName "articles" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/csv/articles/id/{id}#this"; rr:class csv:articles; rr:graph <http://demo.openlinksw.com:8890/csv#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:author ] ; rr:objectMap [ rr:column "author" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:companies ] ; rr:objectMap [ rr:column "companies" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:foundcbref ] ; rr:objectMap [ rr:column "foundcbref" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:foundnlpref ] ; rr:objectMap [ rr:column "foundnlpref" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:id ] ; rr:objectMap [ rr:column "id" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:image ] ; rr:objectMap [ rr:column "image" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:pdate ] ; rr:objectMap [ rr:column "pdate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:pmonth ] ; rr:objectMap [ rr:column "pmonth" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:pyear ] ; rr:objectMap [ rr:column "pyear" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:snippet ] ; rr:objectMap [ rr:column "snippet" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:source ] ; rr:objectMap [ rr:column "source" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:title ] ; rr:objectMap [ rr:column "title" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:url ] ; rr:objectMap [ rr:column "url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:snippet_id ] ; rr:objectMap [ rr:column "snippet_ID" ]; ] .
+
+<#TriplesMapcompanies> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "demo" ; rr:tableName "companies" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/csv/companies/id/{id}#this"; rr:class csv:companies; rr:graph <http://demo.openlinksw.com:8890/csv#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:______blog_feed_url ] ; rr:objectMap [ rr:column "______blog_feed_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:blog_url ] ; rr:objectMap [ rr:column "blog_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:category_code ] ; rr:objectMap [ rr:column "category_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:countrycode ] ; rr:objectMap [ rr:column "countrycode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:deadpooled_date ] ; rr:objectMap [ rr:column "deadpooled_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:description ] ; rr:objectMap [ rr:column "description" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:email_address ] ; rr:objectMap [ rr:column "email_address" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:founded_date ] ; rr:objectMap [ rr:column "founded_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:founded_month ] ; rr:objectMap [ rr:column "founded_month" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:founded_year ] ; rr:objectMap [ rr:column "founded_year" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:freebaseid ] ; rr:objectMap [ rr:column "freebaseid" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:hasstatus ] ; rr:objectMap [ rr:column "hasstatus" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:homepage_url ] ; rr:objectMap [ rr:column "homepage_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:id ] ; rr:objectMap [ rr:column "id" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:label ] ; rr:objectMap [ rr:column "label" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:location_lat ] ; rr:objectMap [ rr:column "location_lat" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:location_lon ] ; rr:objectMap [ rr:column "location_lon" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:number_of_employees ] ; rr:objectMap [ rr:column "number_of_employees" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:one_competitor ] ; rr:objectMap [ rr:column "one_competitor" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:overview ] ; rr:objectMap [ rr:column "overview" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:phone_number ] ; rr:objectMap [ rr:column "phone_number" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:revenue ] ; rr:objectMap [ rr:column "revenue" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:revenuecurrency ] ; rr:objectMap [ rr:column "revenuecurrency" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:revenuedate ] ; rr:objectMap [ rr:column "revenuedate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:statecode ] ; rr:objectMap [ rr:column "statecode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:url ] ; rr:objectMap [ rr:column "url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:webpage ] ; rr:objectMap [ rr:column "webpage" ]; ] .
+
+<#TriplesMapinvestments> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "demo" ; rr:tableName "investments" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/csv/investments/id/{id}#this"; rr:class csv:investments; rr:graph <http://demo.openlinksw.com:8890/csv#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:companies ] ; rr:objectMap [ rr:column "companies" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:funded_date ] ; rr:objectMap [ rr:column "funded_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:funded_month ] ; rr:objectMap [ rr:column "funded_month" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:funded_year ] ; rr:objectMap [ rr:column "funded_year" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:hassourcedescription ] ; rr:objectMap [ rr:column "hassourcedescription" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:hassourceurl ] ; rr:objectMap [ rr:column "hassourceurl" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:id ] ; rr:objectMap [ rr:column "id" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:investors ] ; rr:objectMap [ rr:column "investors" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:label ] ; rr:objectMap [ rr:column "label" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:raised_amount ] ; rr:objectMap [ rr:column "raised_amount" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:raised_currency_code ] ; rr:objectMap [ rr:column "raised_currency_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:round_code ] ; rr:objectMap [ rr:column "round_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:shortinvid ] ; rr:objectMap [ rr:column "shortInvID" ]; ] .
+
+<#TriplesMapinvestors> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "demo" ; rr:tableName "investors" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com:8890/csv/investors/id/{id}#this"; rr:class csv:investors; rr:graph <http://demo.openlinksw.com:8890/csv#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:overview_id ] ; rr:objectMap [ rr:column "overview_ID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:affiliation_name ] ; rr:objectMap [ rr:column "affiliation_name" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:alias_list ] ; rr:objectMap [ rr:column "alias_list" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:birthplace ] ; rr:objectMap [ rr:column "birthplace" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:blog_feed_url ] ; rr:objectMap [ rr:column "blog_feed_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:blog_url ] ; rr:objectMap [ rr:column "blog_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:category_code ] ; rr:objectMap [ rr:column "category_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:countrycode ] ; rr:objectMap [ rr:column "countrycode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:created_at ] ; rr:objectMap [ rr:column "created_at" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:deadpooled_date ] ; rr:objectMap [ rr:column "deadpooled_date" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:description ] ; rr:objectMap [ rr:column "description" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:email_address ] ; rr:objectMap [ rr:column "email_address" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:first_name ] ; rr:objectMap [ rr:column "first_name" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:founded_month ] ; rr:objectMap [ rr:column "founded_month" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:founded_year ] ; rr:objectMap [ rr:column "founded_year" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:homepage_url ] ; rr:objectMap [ rr:column "homepage_url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:id ] ; rr:objectMap [ rr:column "id" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:investor_category_code ] ; rr:objectMap [ rr:column "investor_category_code" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:investortype ] ; rr:objectMap [ rr:column "investortype" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:label ] ; rr:objectMap [ rr:column "label" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:last_name ] ; rr:objectMap [ rr:column "last_name" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:number_of_employees ] ; rr:objectMap [ rr:column "number_of_employees" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:overview ] ; rr:objectMap [ rr:column "overview" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:phone_number ] ; rr:objectMap [ rr:column "phone_number" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:statecode ] ; rr:objectMap [ rr:column "statecode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:twitter_username ] ; rr:objectMap [ rr:column "twitter_username" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:updated_at ] ; rr:objectMap [ rr:column "updated_at" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:url ] ; rr:objectMap [ rr:column "url" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv:web_presence ] ; rr:objectMap [ rr:column "web_presence" ]; ] .
