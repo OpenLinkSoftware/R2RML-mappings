@@ -1,0 +1,125 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix csv_northwind: <http://demo.openlinksw.com/schemas/csv_northwind/> .
+@prefix csv_northwind-stat: <http://demo.openlinksw.com/csv_northwind/stat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix scovo: <http://purl.org/NET/scovo#> .
+@prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
+
+
+<#TriplesMapcategories> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "categories" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/categories/categoryID/{categoryID}#this"; rr:class csv_northwind:categories; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:categoryid ] ; rr:objectMap [ rr:column "categoryID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:categoryname ] ; rr:objectMap [ rr:column "categoryName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:description ] ; rr:objectMap [ rr:column "description" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:picture ] ; rr:objectMap [ rr:column "picture" ]; ] .
+
+<#TriplesMapcustomers> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "customers" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/customers/customerID/{customerID}#this"; rr:class csv_northwind:customers; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:customerid ] ; rr:objectMap [ rr:column "customerID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:companyname ] ; rr:objectMap [ rr:column "companyName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:contactname ] ; rr:objectMap [ rr:column "contactName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:contacttitle ] ; rr:objectMap [ rr:column "contactTitle" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:address ] ; rr:objectMap [ rr:column "address" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:region ] ; rr:objectMap [ rr:column "region" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:postalcode ] ; rr:objectMap [ rr:column "postalCode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:country ] ; rr:objectMap [ rr:column "country" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:phone ] ; rr:objectMap [ rr:column "phone" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:fax ] ; rr:objectMap [ rr:column "fax" ]; ] .
+
+<#TriplesMapemployee_territories> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "employee_territories" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/employee_territories/employeeID/{employeeID}#this"; rr:class csv_northwind:employee_territories; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:employeeid ] ; rr:objectMap [ rr:column "employeeID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:territoryid ] ; rr:objectMap [ rr:column "territoryID" ]; ] .
+
+<#TriplesMapemployees> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "employees" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/employees/employeeID/{employeeID}#this"; rr:class csv_northwind:employees; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:employeeid ] ; rr:objectMap [ rr:column "employeeID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:lastname ] ; rr:objectMap [ rr:column "lastName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:firstname ] ; rr:objectMap [ rr:column "firstName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:title ] ; rr:objectMap [ rr:column "title" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:titleofcourtesy ] ; rr:objectMap [ rr:column "titleOfCourtesy" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:birthdate ] ; rr:objectMap [ rr:column "birthDate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:hiredate ] ; rr:objectMap [ rr:column "hireDate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:address ] ; rr:objectMap [ rr:column "address" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:region ] ; rr:objectMap [ rr:column "region" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:postalcode ] ; rr:objectMap [ rr:column "postalCode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:country ] ; rr:objectMap [ rr:column "country" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:homephone ] ; rr:objectMap [ rr:column "homePhone" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:extension ] ; rr:objectMap [ rr:column "extension" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:photo ] ; rr:objectMap [ rr:column "photo" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:notes ] ; rr:objectMap [ rr:column "notes" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:reportsto ] ; rr:objectMap [ rr:column "reportsTo" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:photopath ] ; rr:objectMap [ rr:column "photoPath" ]; ] .
+
+<#TriplesMaporder_details> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "order_details" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/order_details/orderID/{orderID}#this"; rr:class csv_northwind:order_details; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:orderid ] ; rr:objectMap [ rr:column "orderID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:productid ] ; rr:objectMap [ rr:column "productID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:unitprice ] ; rr:objectMap [ rr:column "unitPrice" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:quantity ] ; rr:objectMap [ rr:column "quantity" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:discount ] ; rr:objectMap [ rr:column "discount" ]; ] .
+
+<#TriplesMaporders> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "orders" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/orders/orderID/{orderID}#this"; rr:class csv_northwind:orders; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:orderid ] ; rr:objectMap [ rr:column "orderID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:customerid ] ; rr:objectMap [ rr:column "customerID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:employeeid ] ; rr:objectMap [ rr:column "employeeID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:orderdate ] ; rr:objectMap [ rr:column "orderDate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:requireddate ] ; rr:objectMap [ rr:column "requiredDate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shippeddate ] ; rr:objectMap [ rr:column "shippedDate" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipvia ] ; rr:objectMap [ rr:column "shipVia" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:freight ] ; rr:objectMap [ rr:column "freight" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipname ] ; rr:objectMap [ rr:column "shipName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipaddress ] ; rr:objectMap [ rr:column "shipAddress" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipcity ] ; rr:objectMap [ rr:column "shipCity" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipregion ] ; rr:objectMap [ rr:column "shipRegion" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shippostalcode ] ; rr:objectMap [ rr:column "shipPostalCode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipcountry ] ; rr:objectMap [ rr:column "shipCountry" ]; ] .
+
+<#TriplesMapproducts> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "products" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/products/productID/{productID}#this"; rr:class csv_northwind:products; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:productid ] ; rr:objectMap [ rr:column "productID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:productname ] ; rr:objectMap [ rr:column "productName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:supplierid ] ; rr:objectMap [ rr:column "supplierID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:categoryid ] ; rr:objectMap [ rr:column "categoryID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:quantityperunit ] ; rr:objectMap [ rr:column "quantityPerUnit" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:unitprice ] ; rr:objectMap [ rr:column "unitPrice" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:unitsinstock ] ; rr:objectMap [ rr:column "unitsInStock" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:unitsonorder ] ; rr:objectMap [ rr:column "unitsOnOrder" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:reorderlevel ] ; rr:objectMap [ rr:column "reorderLevel" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:discontinued ] ; rr:objectMap [ rr:column "discontinued" ]; ] .
+
+<#TriplesMapregions> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "regions" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/regions/regionID/{regionID}#this"; rr:class csv_northwind:regions; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:regionid ] ; rr:objectMap [ rr:column "regionID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:regiondescription ] ; rr:objectMap [ rr:column "regionDescription" ]; ] .
+
+<#TriplesMapshippers> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "shippers" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/shippers/shipperID/{shipperID}#this"; rr:class csv_northwind:shippers; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:shipperid ] ; rr:objectMap [ rr:column "shipperID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:companyname ] ; rr:objectMap [ rr:column "companyName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:phone ] ; rr:objectMap [ rr:column "phone" ]; ] .
+
+<#TriplesMapsuppliers> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "suppliers" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/suppliers/supplierID/{supplierID}#this"; rr:class csv_northwind:suppliers; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:supplierid ] ; rr:objectMap [ rr:column "supplierID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:companyname ] ; rr:objectMap [ rr:column "companyName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:contactname ] ; rr:objectMap [ rr:column "contactName" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:contacttitle ] ; rr:objectMap [ rr:column "contactTitle" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:address ] ; rr:objectMap [ rr:column "address" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:city ] ; rr:objectMap [ rr:column "city" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:region ] ; rr:objectMap [ rr:column "region" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:postalcode ] ; rr:objectMap [ rr:column "postalCode" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:country ] ; rr:objectMap [ rr:column "country" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:phone ] ; rr:objectMap [ rr:column "phone" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:fax ] ; rr:objectMap [ rr:column "fax" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:homepage ] ; rr:objectMap [ rr:column "homePage" ]; ] .
+
+<#TriplesMapterritories> a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "csv" ; rr:tableOwner "Northwind" ; rr:tableName "territories" ]; 
+rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/csv/territories/territoryID/{territoryID}/territoryDescription/{territoryDescription}#this"; rr:class csv_northwind:territories; rr:graph <http://demo.openlinksw.com/csv_northwind#> ];
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:territoryid ] ; rr:objectMap [ rr:column "territoryID" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:territorydescription ] ; rr:objectMap [ rr:column "territoryDescription" ]; ] ;
+rr:predicateObjectMap [ rr:predicateMap [ rr:constant csv_northwind:regionid ] ; rr:objectMap [ rr:column "regionID" ]; ] .
