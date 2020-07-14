@@ -1,0 +1,63 @@
+PREFIX rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX skos:	<http://www.w3.org/2004/02/skos/core#> 
+PREFIX owl:	<http://www.w3.org/2002/07/owl#> 
+PREFIX schema:	<http://schema.org/> 
+PREFIX virtcxml:	<http://www.openlinksw.com/schemas/virtcxml#> 
+PREFIX rdfs:	<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX ldp:	<http://www.w3.org/ns/ldp#> 
+PREFIX rr:	<http://www.w3.org/ns/r2rml#> 
+PREFIX dbpedia-owl:	<http://dbpedia.org/ontology/> 
+PREFIX xsd:	<http://www.w3.org/2001/XMLSchema#> 
+PREFIX :	<#> 
+
+:Party
+                    a	rr:TriplesMap ;
+                    rdfs:comment """R2RML Mapping in RDF-Turtle that describes How to Map the N-Tuple Relation (Table) "partei"."lobbywatch_public"."lobbywatch" 
+                                    To the 3-Tuple Relation <#Party> .
+                                 """@en ;
+                    rr:logicalTable	[	
+                                        rr:tableName	"partei" ;
+                                        rr:tableOwner	"lobbywatch_public" ;
+                                        rr:tableSchema	"lobbywatch" 
+                                    ] ;
+                    rr:subjectMap	[	
+                                        rr:class	schema:Organization , dbpedia-owl:PoliticalParty ;
+                                        rr:template	"https://lod.lobbywatch.ch/party/{abkuerzung}" ;
+                                        ## Added this Named Graph assignment for RDF View to be generated from
+                                        ## Quad Maps defined below, since it was missing from the original R2RML
+                                        rr:graph <https://lod.lobbywatch.ch/party/>
+                                    ] ;
+                    rr:predicateObjectMap	[	
+                                                rr:predicate	schema:foundingDate ;
+                                                rr:objectMap	[	rr:column	"gruendung" ;
+                                                                    rr:datatype	xsd:date 
+                                                                ] ;
+                                            ] ,
+                                            [	
+                                                rr:predicate	schema:name ;
+                                                rr:objectMap	[	rr:column	"name" ;
+                                                                    rr:language	"de" 
+                                                                ] ;
+                                            ] ,
+                                            [	
+                                                rr:predicate	schema:name ;
+                                                rr:objectMap	[	rr:column	"name_fr" ;
+                                                                    rr:language	"fr" 
+                                                                ] ; 
+                                            ] ,
+                                            [	
+                                                rr:predicate	skos:altLabel ;
+                                                rr:objectMap	[	rr:column	"abkuerzung" ;
+                                                                    rr:language	"de" 
+                                                                ] ;
+                                            ] ,
+                                            [	
+                                                rr:predicate	skos:altLabel ;
+                                                rr:objectMap	[	rr:column	"abkuerzung_fr" ;
+                                                                    rr:language	"fr" 
+                                                                ] ;
+                                            ] ,
+                                            [	
+                                                rr:predicate	schema:url ;
+                                                rr:objectMap	[	rr:column	"homepage" ] ;
+                                            ] .
