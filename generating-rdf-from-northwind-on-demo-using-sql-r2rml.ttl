@@ -10,7 +10,7 @@
 <#TriplesMapCategories> 
 a rr:TriplesMap; 
 rr:logicalTable [ rr:sqlQuery """
-                                    SELECT "CategoryID", "CategoryName", "Description", "Picture"
+                                    SELECT "CategoryID", "CategoryName", "Description"
                                     FROM "Demo"."demo"."categories" 
                               """ ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindDemo/categories/CategoryID={CategoryID}#this"; rr:class Demo:Categories; rr:graph <http://demo.openlinksw.com/NorthwindDemo#> ];
@@ -67,7 +67,7 @@ a rr:TriplesMap;
 rr:logicalTable [ rr:sqlQuery """
                                     SELECT "EmployeeID", "LastName", "FirstName", "Title", "TitleOfCourtesy",
                                             "HireDate", "BirthDate", "Address", "City", "Region", "PostalCode",
-                                            "Country", "CountryCode", "HomePhone", "Extension", "Photo", "Notes",
+                                            "Country", "CountryCode", "HomePhone", "Extension", "Notes",
                                             "ReportsTo"
                                     FROM "Demo"."demo"."employees" 
                               """ ]; 
