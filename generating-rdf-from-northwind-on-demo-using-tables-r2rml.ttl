@@ -7,7 +7,10 @@
 @prefix aowl: <http://bblfish.net/work/atom-owl/2006-06-06/> .
 
 <#TriplesMapCategories> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Categories" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Categories" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableName "\"Demo\".\"demo\".\"Categories\"" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableName """"Demo"."demo"."Categories"""" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Categories" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/categories/CategoryID={CategoryID}#this"; rr:class Demo:Categories; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:categoryid ] ; rr:objectMap [ rr:column "CategoryID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:categoryname ] ; rr:objectMap [ rr:column "CategoryName" ]; ] ;
@@ -16,7 +19,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:picture ] ; rr:object
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:categories_of_products ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapProducts>;  rr:joinCondition [ rr:child "CategoryID" ; rr:parent "CategoryID" ] ; ]; ] .
 
 <#TriplesMapCustomers> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Customers" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Customers" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Customers" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/customers/CustomerID={CustomerID}#this"; rr:class Demo:Customers; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:customerid ] ; rr:objectMap [ rr:column "CustomerID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:companyname ] ; rr:objectMap [ rr:column "CompanyName" ]; ] ;
@@ -33,7 +37,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:fax ] ; rr:objectMap 
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:customers_of_orders ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapOrders>;  rr:joinCondition [ rr:child "CustomerID" ; rr:parent "CustomerID" ] ; ]; ] .
 
 <#TriplesMapEmployees> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Employees" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Employees" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Employees" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/employees/EmployeeID={EmployeeID}#this"; rr:class Demo:Employees; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:employeeid ] ; rr:objectMap [ rr:column "EmployeeID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:lastname ] ; rr:objectMap [ rr:column "LastName" ]; ] ;
@@ -56,7 +61,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:reportsto ] ; rr:obje
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:employees_of_orders ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapOrders>;  rr:joinCondition [ rr:child "EmployeeID" ; rr:parent "EmployeeID" ] ; ]; ] .
 
 <#TriplesMapOrder_Details> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Order_Details" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Order_Details" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Order_Details" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/order_details/OrderID={OrderID}/ProductID={ProductID}#this"; rr:class Demo:Order_Details; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:unitprice ] ; rr:objectMap [ rr:column "UnitPrice" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:quantity ] ; rr:objectMap [ rr:column "Quantity" ]; ] ;
@@ -65,7 +71,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:order_details_has_ord
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:order_details_has_products ] ; rr:objectMap [ rr:termType rr:IRI ; rr:template "http://demo.openlinksw.com/NorthwindQA/products/ProductID={ProductID}#this" ]; ] .
 
 <#TriplesMapOrders> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Orders" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Orders" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Orders" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/orders/OrderID={OrderID}#this"; rr:class Demo:Orders; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:orderid ] ; rr:objectMap [ rr:column "OrderID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:orderdate ] ; rr:objectMap [ rr:column "OrderDate" ]; ] ;
@@ -85,7 +92,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:orders_has_shippers ]
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:orders_of_order_details ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapOrder_Details>;  rr:joinCondition [ rr:child "OrderID" ; rr:parent "OrderID" ] ; ]; ] .
 
 <#TriplesMapProducts> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Products" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Products" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Products" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/products/ProductID={ProductID}#this"; rr:class Demo:Products; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:productid ] ; rr:objectMap [ rr:column "ProductID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:productname ] ; rr:objectMap [ rr:column "ProductName" ]; ] ;
@@ -100,7 +108,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:products_has_supplier
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:products_of_order_details ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapOrder_Details>;  rr:joinCondition [ rr:child "ProductID" ; rr:parent "ProductID" ] ; ]; ] .
 
 <#TriplesMapShippers> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Shippers" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Shippers" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Shippers" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/shippers/ShipperID={ShipperID}#this"; rr:class Demo:Shippers; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:shipperid ] ; rr:objectMap [ rr:column "ShipperID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:companyname ] ; rr:objectMap [ rr:column "CompanyName" ]; ] ;
@@ -108,7 +117,8 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:phone ] ; rr:objectMa
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:shippers_of_orders ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapOrders>;  rr:joinCondition [ rr:child "ShipperID" ; rr:parent "ShipVia" ] ; ]; ] .
 
 <#TriplesMapSuppliers> 
-a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Suppliers" ]; 
+# a rr:TriplesMap; rr:logicalTable [ rr:tableSchema "Demo" ; rr:tableOwner "demo" ; rr:tableName "Suppliers" ]; 
+a rr:TriplesMap; rr:logicalTable [ rr:tableName "Demo.demo.Suppliers" ]; 
 rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/NorthwindQA/suppliers/SupplierID={SupplierID}#this"; rr:class Demo:Suppliers; rr:graph <http://demo.openlinksw.com/NorthwindQA#> ];
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:supplierid ] ; rr:objectMap [ rr:column "SupplierID" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:companyname ] ; rr:objectMap [ rr:column "CompanyName" ]; ] ;
