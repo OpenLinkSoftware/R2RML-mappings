@@ -1,3 +1,4 @@
+## Turtle Start ##
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix Demo: <http://demo.openlinksw.com/schemas/NorthwindQA/> .
 @prefix demoqa-stat: <http://demo.openlinksw.com/DemoQA/stat#> .
@@ -134,3 +135,4 @@ rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:phone ] ; rr:objectMa
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:fax ] ; rr:objectMap [ rr:column "Fax" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:homepage ] ; rr:objectMap [ rr:column "HomePage" ]; ] ;
 rr:predicateObjectMap [ rr:predicateMap [ rr:constant Demo:suppliers_of_products ] ; rr:objectMap [ rr:parentTriplesMap <#TriplesMapProducts>;  rr:joinCondition [ rr:child "SupplierID" ; rr:parent "SupplierID" ] ; ]; ] .
+## Turtle End ##
